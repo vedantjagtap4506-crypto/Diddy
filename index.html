@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Valentine 💖</title>
+
+<style>
+:root{
+  --bg:#fff5f7;
+  --main:#7b1e3a;
+  --soft:#f8d7e3;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:var(--bg);color:var(--main);overflow-x:hidden;}
+
+/* Floating hearts */
+.heart{position:fixed;top:-10px;animation:fall linear infinite;opacity:.7;font-size:18px;}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg);}}
+
+/* Slides */
+section{
+  min-height:100vh;
+  padding:60px 20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+/* Buttons */
+.btn{
+  margin-top:25px;
+  padding:14px 28px;
+  border:none;
+  border-radius:30px;
+  background:var(--main);
+  color:white;
+  font-size:1rem;
+  cursor:pointer;
+  transition:.3s;
+}
+.btn:hover{transform:scale(1.05);}
+
+/* Intro */
+#intro h1{font-size:2.8rem;}
+#intro p{margin-top:10px;font-size:1.2rem;}
+
+/* Envelope */
+.envelope{
+  width:220px;
+  height:140px;
+  background:var(--main);
+  border-radius:10px;
+  margin-top:40px;
+  position:relative;
+  cursor:pointer;
+}
+.flap{
+  position:absolute;
+  inset:0;
+  background:#9b2d4c;
+  clip-path:polygon(0 0,100% 0,50% 50%);
+  transition:.6s;
+}
+.letter{
+  position:absolute;
+  inset:10%;
+  background:white;
+  border-radius:8px;
+  padding:15px;
+  font-size:.9rem;
+  opacity:0;
+  transition:.6s;
+}
+.envelope.open .flap{transform:rotateX(180deg);}
+.envelope.open .letter{opacity:1;}
+
+/* Gallery FIXED */
+.gallery{
+  display:flex;
+  gap:18px;
+  overflow-x:auto;
+  padding:20px 10px;
+  max-width:100%;
+}
+.photo{
+  min-width:220px;
+  height:280px;
+  background:var(--soft);
+  border-radius:22px;
+  overflow:hidden;
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.tilt-left{transform:rotate(-3deg);}
+.tilt-right{transform:rotate(3deg);}
+
+/* Typewriter */
+.type{max-width:600px;font-size:1.2rem;margin-top:20px;}
+
+/* Proposal */
+#proposal{position:relative;overflow:hidden;}
+#proposal img{
+  max-width:150px;
+  margin-bottom:15px;
+  border-radius:15px;
+  display:none;
+}
+.options{
+  position:relative;
+  width:100%;
+  height:160px;
+  margin-top:30px;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+}
+#noBtn{position:relative;transition:.25s;}
+#yesBtn{transition:.3s;}
+
+/* Final */
+#final{position:relative;}
+#final h1{font-size:2.6rem;}
+#final p{font-size:1.2rem;margin-top:15px;}
+#signature{
+  position:absolute;
+  bottom:10px;
+  right:15px;
+  font-size:.9rem;
+  opacity:.8;
+}
+#memory{
+  position:absolute;
+  bottom:35px;
+  font-size:.9rem;
+  opacity:.6;
+}
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section id="intro">
+  <h1>Made with lots of love and retries😭❤️</h1>
+  <p>Just for YOU </p>
+  <button class="btn" onclick="go(1)">Begin 💌</button>
+</section>
+
+<!-- LETTER -->
+<section>
+  <h1>A Letter For You</h1>
+  <div class="envelope" onclick="this.classList.toggle('open')">
+    <div class="flap"></div>
+    <div class="letter">
+      lol<br>
+      lol<br>
+      lol
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section>
+  <h1>Us 😭🫶</h1>
+  <p style="margin-top:10px;opacity:.8;">Not much but got all I had😭🫶</p>
+
+  <div class="gallery">
+    <div class="photo tilt-left">
+      <img src="photos/photo1.jpg">
+    </div>
+    <div class="photo">
+      <img src="photos/photo2.jpg">
+    </div>
+    <div class="photo tilt-right">
+      <img src="photos/photo3.jpg">
+    </div>
+  </div>
+</section>
+
+<!-- MESSAGE -->
+<section>
+  <h1>Something I Feel</h1>
+  <div class="type" id="typeText"></div>
+</section>
+
+<!-- PROPOSAL -->
+<section id="proposal">
+  <img id="noPic" src="photos/cat.jpg?v=1">
+  <h1 id="proposalText">Will You Be My Valentine? 💖</h1>
+
+  <div class="options">
+    <button class="btn" id="yesBtn" onclick="yes()">Yes 💘</button>
+    <button class="btn" id="noBtn" onclick="handleNo()">No 😳</button>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section id="final">
+  <h1>You’re My Favorite Story ✨</h1>
+  <p>And I want to write it with you FOREVER 💞</p>
+  <div id="memory">Made with too much love and overthinking.</div>
+  <div id="signature">-Makkad❤️😁</div>
+</section>
+
+<audio id="popSound" src="https://www.soundjay.com/button/sounds/button-16.mp3"></audio>
+
+<script>
+function go(i){
+  document.querySelectorAll("section")[i].scrollIntoView({behavior:"smooth"});
+}
+
+/* Hearts */
+setInterval(()=>{
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerText="🤍";
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=3+Math.random()*5+"s";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),8000);
+},300);
+
+/* Typewriter */
+const text="Loving you feels calm, real, and endlessly beautiful. You are my favorite place to be.";
+let t=0;
+(function type(){
+  if(t<text.length){
+    typeText.innerHTML+=text.charAt(t++);
+    setTimeout(type,50);
+  }
+})();
+
+/* Proposal logic */
+let noClicks=0;
+let activated=false;
+
+function handleNo(){
+  const textEl=proposalText;
+  const btn=noBtn;
+  const box=document.querySelector(".options");
+  const pic=noPic;
+
+  noClicks++;
+
+  if(noClicks===1){
+    textEl.innerText="sochle firse";
+    pic.style.display="block";
+  }else if(noClicks===2){
+    textEl.innerText="Akhri baar puch Raha huu";
+  }else if(noClicks===3){
+    textEl.innerText="Maan jaa naa yarr😭";
+  }else if(noClicks<8){
+    if(!activated){
+      activated=true;
+      btn.style.position="absolute";
+    }
+    btn.style.left=Math.random()*(box.clientWidth-btn.offsetWidth)+"px";
+    btn.style.top=Math.random()*(box.clientHeight-btn.offsetHeight)+"px";
+  }else{
+    textEl.innerText="Acha thike, khup hatti ahes😤 pn tari majhich ahes";
+    btn.style.display="none";
+  }
+}
+
+function yes(){
+  final.scrollIntoView({behavior:"smooth"});
+  for(let i=0;i<120;i++){
+    const c=document.createElement("div");
+    c.style.position="fixed";
+    c.style.width="8px";
+    c.style.height="8px";
+    c.style.background=["#f8d7e3","#ffb6c1","#fff","#ff6b81"][Math.floor(Math.random()*4)];
+    c.style.left="50vw";
+    c.style.top="50vh";
+    c.style.borderRadius="50%";
+    document.body.appendChild(c);
+    const x=(Math.random()-0.5)*600;
+    const y=(Math.random()-0.5)*600;
+    c.animate([{transform:"translate(0,0)"},{transform:`translate(${x}px,${y}px)`}],{duration:1200,easing:"ease-out"});
+    setTimeout(()=>c.remove(),1200);
+  }
+  popSound.play();
+}
+</script>
+
+</body>
+</html>
