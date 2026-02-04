@@ -25,11 +25,14 @@ section{
   padding:60px 20px;
   display:flex;
   flex-direction:column;
-  justify-content:center;
   align-items:center;
   text-align:center;
+  overflow:hidden;
 }
 
+  #gallerySection{
+  align-items:flex-start;
+}
 /* Buttons */
 .btn{
   margin-top:25px;
@@ -83,9 +86,11 @@ section{
   display:flex;
   gap:18px;
   overflow-x:auto;
+  overflow-y:hidden;
   padding:20px 10px;
-  max-width:100%;
-}
+  width:100%;
+  scroll-behavior:smooth;
+    }
 .photo{
   min-width:220px;
   height:280px;
@@ -214,6 +219,7 @@ function yes(){
 </body>
 
 </html>
+
 
 
 
