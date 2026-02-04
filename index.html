@@ -131,101 +131,8 @@ section{
 /* Final */
 #final{position:relative;}
 #final h1{font-size:2.6rem;}
-#final p{font-size:1.2rem;margin-top:15px;}
-#signature{
-  position:absolute;
-  bottom:10px;
-  right:15px;
-  font-size:.9rem;
-  opacity:.8;
-}
-#memory{
-  position:absolute;
-  bottom:35px;
-  font-size:.9rem;
-  opacity:.6;
-}
-</style>
-</head>
-<body>
-
-<!-- INTRO -->
-<section id="intro">
-  <h1>Made with lots of love and retries😭❤️</h1>
-  <p>Just for YOU </p>
-  <button class="btn" onclick="go(1)">Begin 💌</button>
-</section>
-
-<!-- LETTER -->
-<section>
-  <h1>A Letter For You</h1>
-  <div class="envelope" onclick="this.classList.toggle('open')">
-    <div class="flap"></div>
-    <div class="letter">
-    Not much to say<br>
-   except it's all <br>
-   Jut for you❤️<br>
-  still learning, Still trying<br>
-    because you matter 
-    </div>
-  </div>
-</section>
-
-<!-- GALLERY -->
-<section>
-  <h1>Us 😭🫶</h1>
-  <p style="margin-top:10px;opacity:.8;">Not much but got all I had😭🫶</p>
-
-  <div class="gallery">
-    <div class="photo tilt-left">
-      <img src="photo1.jpg">
-    </div>
-    <div class="photo tilt-right">
-      <img src="photo2.jpg">
-    </div>
-    <div class="photo tilt-left">
-      <img src="photo3.jpg">
-    </div>
-    <div class="photo tilt-right">
-  <img src="photo4.jpg">
-    </div>
-    <div class="photo tilt-left">
-  <img src="photo5.jpg">
-      <div class="photo tilt-right">
-  <img src="photo6.jpg">
-    </div>
-    </div>
-  </div>
-</section>
-
-<!-- MESSAGE -->
-<section>
-  <h1>Something I Feel</h1>
-  <div class="type" id="typeText"></div>
-</section>
-
-<!-- PROPOSAL -->
-<section id="proposal">
-  <img id="noPic" src="cat.jpg?v=1">
-  <h1 id="proposalText">Will You Be My Valentine? 💖</h1>
-
-  <div class="options">
-    <button class="btn" id="yesBtn" onclick="yes()">Yes 💘</button>
-    <button class="btn" id="noBtn" onclick="handleNo()">No 😳</button>
-  </div>
-</section>
-
-<!-- FINAL -->
-<section id="final">
-  <h1>You’re My Favorite Story ✨</h1>
-  <p>And I want to write it with you FOREVER 💞</p>
-  <div id="memory">Made with too much love and overthinking.</div>
-  <div id="signature">-Makkad❤️😁</div>
-</section>
-
-<audio id="popSound" src="https://www.soundjay.com/button/sounds/button-16.mp3"></audio>
-
-<script>
+  </style>
+  <script>
 function go(i){
   document.querySelectorAll("section")[i].scrollIntoView({behavior:"smooth"});
 }
@@ -307,6 +214,7 @@ function yes(){
 </body>
 
 </html>
+
 
 
 
